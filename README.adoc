@@ -1,0 +1,15 @@
+= AWS Lambda Function ftp2s3
+
+AWS Lambda Function to sync files from ftp to S3 using scheduler (EventBridge)
+
+== Prerequisites
+
+- Create S3 bucket as destination for files (sink) 
+- Create IAM role for service account with full permission to S3 service(`AmazonS3FullAccess`)
+- Create AWS lambda Function with https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html[parameters] and security role created before.
+- Create scheduler using https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-run-lambda-schedule.html[EventBridge]
+
+== Configuration 
+
+- AWS specific configuration depends on default setup for AWS secret id and key 
+- Runtime-specific configuration stored in `config.py` that uses global variables so it can be modified directly or be passed as arguments.
